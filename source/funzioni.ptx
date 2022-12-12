@@ -512,7 +512,7 @@
 
         <solution>
           <p>
-            Per la <xref ref="prop-avanti_indietro"/>, <m>(Cf)f^{-1}f\subseteq Cf</m> e <m>Cff^{-1}\supseteq C</m>: per la <xref ref="prop-inclusione_immagini_dirette_inverse"/> abbiamo allora <m>(Cff^{-1})f\supseteq Cf</m>.
+            La <xref ref="prop-avanti_indietro"/> implica che <m>(Cf)f^{-1}f\subseteq Cf</m> e <m>Cff^{-1}\supseteq C</m>: per la <xref ref="prop-inclusione_immagini_dirette_inverse"/> abbiamo allora <m>(Cff^{-1})f\supseteq Cf</m>.
           </p>
         </solution>
 
@@ -528,7 +528,7 @@
 
         <solution>
           <p>
-            Per la <xref ref="prop-avanti_indietro"/>, <m>(Df^{-1})ff^{-1}\supseteq Df^{-1}</m> e <m>Df^{-1}f\subseteq D</m>: per la <xref ref="prop-inclusione_immagini_dirette_inverse"/> abbiamo allora <m>(Df^{-1}f)f^{-1}\subseteq Df^{-1}</m>.
+            La <xref ref="prop-avanti_indietro"/> implica che <m>(Df^{-1})ff^{-1}\supseteq Df^{-1}</m> e <m>Df^{-1}f\subseteq D</m>: per la <xref ref="prop-inclusione_immagini_dirette_inverse"/> abbiamo allora <m>(Df^{-1}f)f^{-1}\subseteq Df^{-1}</m>.
           </p>
         </solution>
 
