@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="it-IT">
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Dipendenza e indipendenza lineare</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta property="book:title" content="Algebra">
+<meta property="book:author" content="Valerio Monti">
+<script>var runestoneMathReady = new Promise((resolve) => window.rsMathReady = resolve);
+window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'color', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.98,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/color', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+  startup: {
+    pageReady() {
+      return MathJax.startup.defaultPageReady().then(function () {
+      console.log("in ready function");
+      rsMathReady();
+      }
+    )}
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script src="https://unpkg.com/lunr/lunr.js"></script><script src="lunr-pretext-search-index.js"></script><script src="https://pretextbook.org/js/0.2/pretext_search.js"></script><link href="https://pretextbook.org/css/0.6/pretext_search.css" rel="stylesheet" type="text/css">
+<script>js_version = 0.2</script><script src="https://pretextbook.org/js/lib/jquery.min.js"></script><script src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script src="https://pretextbook.org/js/0.2/pretext.js"></script><script>miniversion=0.1</script><script src="https://pretextbook.org/js/0.2/pretext_add_on.js?x=1"></script><script src="https://pretextbook.org/js/0.2/user_preferences.js"></script><script src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Calcola (Sage)';
+</script><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&amp;family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+<link href="http://fonts.cdnfonts.com/css/dejavu-serif" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz,wdth,wght@8..144,50..150,100..900&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&amp;display=swap" rel="stylesheet">
+<link href="https://pretextbook.org/css/0.6/pretext.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/shell_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/banner_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/navbar_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/toc_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/knowls_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/style_default.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/colors_blue_red.css" rel="stylesheet" type="text/css">
+<link href="https://pretextbook.org/css/0.6/setcolors.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Vai all'indice generale</a><header id="ptx-masthead"><div class="ptx-banner">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="book-algebra.html"><span class="title">Algebra</span></a></h1>
+<p class="byline">Valerio Monti</p>
+</div>
+<div id="searchresultsplaceholder" style="display: none">
+<button id="closesearchresults" onclick="document.getElementById('searchresultsplaceholder').style.display = 'none'; return false;">x</button><h2>Risultati: <span id="searchterms"></span>
+</h2>
+<div id="searchempty"><span>Nessun risultato.</span></div>
+<ol id="searchresults"></ol>
+</div>
+</div></header><nav id="ptx-navbar" class="navbar"><button class="toc-toggle button" aria-label="Show or hide table of contents"><span class="icon">☰</span><span class="name">Indice</span></button><a class="index-button button" href="indice.html" title="Indice analitico"><span class="name">Indice analitico</span></a><button id="user-preferences-button" class="user-preferences-button button" title="Modify user preferences"><span id="theavatarbutton" class="name">You!</span><div id="preferences_menu_holder" class="hidden"><ol id="preferences_menu" style="font-family: 'Roboto Serif', serif;">
+<li data-env="avatar" tabindex="-1">Choose avatar<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden avatar">
+<li data-val="You!" tabindex="-1">
+<span id="theYou!" class="avatarcheck">✔️</span>You!</li>
+<li data-val="😺" tabindex="-1">
+<span id="the😺" class="avatarcheck"></span>😺</li>
+<li data-val="👤" tabindex="-1">
+<span id="the👤" class="avatarcheck"></span>👤</li>
+<li data-val="👽" tabindex="-1">
+<span id="the👽" class="avatarcheck"></span>👽</li>
+<li data-val="🐶" tabindex="-1">
+<span id="the🐶" class="avatarcheck"></span>🐶</li>
+<li data-val="🐼" tabindex="-1">
+<span id="the🐼" class="avatarcheck"></span>🐼</li>
+<li data-val="🌈" tabindex="-1">
+<span id="the🌈" class="avatarcheck"></span>🌈</li>
+</ol>
+</li>
+<li data-env="fontfamily" tabindex="-1">Font family<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fontfamily">
+<li data-val="face" data-change="OS" tabindex="-1" style="font-family: 'Open Sans'">
+<span id="theOS" class="ffcheck">✔️</span><span class="name">Open Sans</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+<li data-val="face" data-change="RS" tabindex="-1" style="font-family: 'Roboto Serif'">
+<span id="theRS" class="ffcheck"></span><span class="name">Roboto Serif</span><span class="sample">AaBbCc 123 PreTeXt</span>
+</li>
+</ol>
+</li>
+<li data-env="font" tabindex="-1">Adjust font<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden fonts">
+<li>Size</li>
+<li><span id="thesize">12</span></li>
+<li data-val="size" data-change="-1" tabindex="-1" style="font-size: 80%">Smaller</li>
+<li data-val="size" data-change="1" tabindex="-1" style="font-size: 110%">Larger</li>
+<li>Width</li>
+<li><span id="thewdth">100</span></li>
+<li data-val="wdth" data-change="-5" tabindex="-1" style="font-variation-settings: 'wdth' 60">narrower</li>
+<li data-val="wdth" data-change="5" tabindex="-1" style="font-variation-settings: 'wdth' 150">wider</li>
+<li>Weight</li>
+<li><span id="thewght">400</span></li>
+<li data-val="wght" data-change="-50" tabindex="-1" style="font-weight: 200">thinner</li>
+<li data-val="wght" data-change="50" tabindex="-1" style="font-weight: 700">heavier</li>
+<li>Letter spacing</li>
+<li>
+<span id="thelspace">0</span><span class="byunits">/200</span>
+</li>
+<li data-val="lspace" data-change="-1" tabindex="-1">closer</li>
+<li data-val="lspace" data-change="1" tabindex="-1">f a r t h e r</li>
+<li>Word spacing</li>
+<li>
+<span id="thewspace">0</span><span class="byunits">/50</span>
+</li>
+<li data-val="wspace" data-change="-1" tabindex="-1">smaller gap </li>
+<li data-val="wspace" data-change="1" tabindex="-1">larger gap</li>
+<li>Line Spacing</li>
+<li>
+<span id="theheight">135</span><span class="byunits">/100</span>
+</li>
+<li data-val="height" data-change="-5" tabindex="-1" style="line-height: 1">closer<br>together</li>
+<li data-val="height" data-change="5" tabindex="-1" style="line-height: 1.75">further<br>apart</li>
+</ol>
+</li>
+<li data-env="atmosphere" tabindex="-1">Light/dark mode<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden atmosphere">
+<li data-val="default" tabindex="-1">
+<span id="thedefault" class="atmospherecheck">✔️</span>default</li>
+<li data-val="pastel" tabindex="-1">
+<span id="thepastel" class="atmospherecheck"></span>pastel</li>
+<li data-val="darktwilight" tabindex="-1">
+<span id="thedarktwilight" class="atmospherecheck"></span>twilight</li>
+<li data-val="dark" tabindex="-1">
+<span id="thedark" class="atmospherecheck"></span>dark</li>
+<li data-val="darkmidnight" tabindex="-1">
+<span id="thedarkmidnight" class="atmospherecheck"></span>midnight</li>
+</ol>
+</li>
+<li data-env="ruler" tabindex="-1">Reading ruler<div class="wrap_to_submenu"><span class="to_submenu">▻</span></div>
+<ol class="hidden ruler">
+<li data-val="none" tabindex="-1">
+<span id="thenone" class="rulercheck">✔️</span>none</li>
+<li data-val="underline" tabindex="-1">
+<span id="theunderline" class="rulercheck"></span>underline</li>
+<li data-val="lunderline" tabindex="-1">
+<span id="thelunderline" class="rulercheck"></span>L-underline</li>
+<li data-val="greybar" tabindex="-1">
+<span id="thegreybar" class="rulercheck"></span>grey bar</li>
+<li data-val="lightbox" tabindex="-1">
+<span id="thelightbox" class="rulercheck"></span>light box</li>
+<li data-val="sunrise" tabindex="-1">
+<span id="thesunrise" class="rulercheck"></span>sunrise</li>
+<li data-val="sunriseunderline" tabindex="-1">
+<span id="thesunriseunderline" class="rulercheck"></span>sunrise underline</li>
+<li class="moveQ">Motion by:</li>
+<li data-val="mouse" tabindex="-1">
+<span id="themouse" class="motioncheck">✔️</span>follow the mouse</li>
+<li data-val="arrow" tabindex="-1">
+<span id="thearrow" class="motioncheck"></span>up/down arrows - not yet</li>
+<li data-val="eye" tabindex="-1">
+<span id="theeye" class="motioncheck"></span>eye tracking - not yet</li>
+</ol>
+</li>
+</ol></div></button><span class="treebuttons"><a class="previous-button button" href="sec-somma_diretta_moduli.html" title="Precedente"><span class="icon">&lt;</span><span class="name">Prec</span></a><a class="up-button button" href="ch-moduli_liberi.html" title="Su"><span class="icon">^</span><span class="name">Su</span></a><a class="next-button button" href="sec-elementi_di_torsione.html" title="Successivo"><span class="name">Succ</span><span class="icon">&gt;</span></a></span><div class="searchbox"><div class="searchwidget">
+<input id="ptxsearch" type="text" name="terms" placeholder="Search" onchange="doSearch()"><button id="searchbutton" type="button" onclick="doSearch()">🔍</button>
+</div></div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\require{mathtools}\require{cancel}\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\cont}{c}
+\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\Inv}{Inv}
+\DeclareMathOperator{\MCD}{MCD}
+\DeclareMathOperator{\mcm}{mcm}
+\DeclareMathOperator{\centro}{Z}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Soc}{Soc}
+\DeclareMathOperator{\Rad}{Rad}
+\DeclareMathOperator{\car}{char}
+
+
+\newcommand{\Sym}{\mathrm{Sym}}
+\newcommand{\Id}{\mathrm{Id}}
+\newcommand{\Idmatrix}{\mathrm{I}}
+\newcommand{\dist}{\mathrm{d}}
+
+\newcommand{\Reali}{\mathbf{R}}
+\newcommand{\Naturali}{\mathbf{N}}
+\newcommand{\Interi}{\mathbf{Z}}
+ \newcommand{\Razionali}{\mathbf{Q}}
+ \newcommand{\Complessi}{\mathbf{C}}
+
+ \newcommand{\grgen}[1]{\langle#1\rangle}
+ \newcommand{\ideal}[1]{\left(#1\right)}
+ \newcommand{\alg}[1]{\left\lbrack#1\right\rvert}
+ \newcommand{\seg}[1]{\left\lvert#1\right)}
+ \newcommand{\ann}[1]{\operatorname{Ann}\left(#1\right)}
+ \newcommand{\len}[1]{\operatorname{l}\left(#1\right)}
+ \newcommand{\class}[2][\sim]{\lbrack #2\rbrack_{#1}}
+ \newcommand{\cent}[2]{\operatorname{C}_{#1}\left(#2\right)}
+ \newcommand{\nrm}[2]{\operatorname{N}_{#1}\left(#2\right)}
+ \newcommand{\stab}[2]{\operatorname{Stab}_{#1}\left(#2\right)}
+ \newcommand{\Supp}[1]{\operatorname{Supp}\left(#1\right)}
+ \newcommand{\Gal}[1]{\operatorname{Gal}\left(#1\right)}
+ \newcommand{\tr}[1]{#1^{\intercal}}
+ \newcommand{\vuoto}{\varnothing}
+ \newcommand{\parti}[1]{\mathcal{P}(#1)}
+ \newcommand{\euler}[1]{\varphi(#1)}
+ \newcommand{\euclidean}{\delta}
+
+ \newcommand{\vect}[1]{\boldsymbol{#1}}
+ 
+ \newcommand{\mat}[2]{\operatorname{M}_{#1}(#2)}
+ \newcommand{\matt}[3]{\operatorname{M}_{#1,#2}(#3)}
+ \newcommand{\Sim}[2]{\operatorname{S}(#1,#2)}
+ \newcommand{\AntiSim}[2]{\operatorname{A}(#1,#2)}
+ \newcommand{\Diag}[2]{\operatorname{D}(#1,#2)}
+ \newcommand{\TS}[2]{\operatorname{T}^{#1}(#2)}
+ \newcommand{\TI}[2]{\operatorname{T}_{#1}(#2)}
+ \newcommand{\GL}[2]{\operatorname{GL}(#1,#2)}
+ \newcommand{\SL}[2]{\operatorname{SL}(#1,#2)}
+ \newcommand{\Ort}[2]{\operatorname{O}(#1,#2)}
+
+ \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+ \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+ \newcommand{\ind}[2]{\left\lvert#1:#2\right\rvert}
+ \newcommand{\degext}[2]{\left\lbrack#1:#2\right\rbrack}
+
+ \newcommand{\invprov}[1]{\widehat{#1}}
+
+ \newcommand\YoungTableau[1]{
+ \begin{tikzpicture}[scale=0.4,keepsize]
+ \foreach \y [count=\yi] in {#1}
+ \foreach \x in {1,...,\y}
+ {
+ \draw (\x,\yi) rectangle +(1,1);
+ }
+ \end{tikzpicture}
+ }
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar"><nav id="ptx-toc" class="depth2"><ul class="structural">
+<li>
+<div class="toc-item"><a href="frontmatter.html" class="internal"><span class="title">Materiale iniziale</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li><div class="toc-item"><a href="preface-1.html" class="internal"><span class="title">Prefazione</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-preliminari.html" class="internal"><span class="codenumber">I</span> <span class="title">Preliminari</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-insiemi.html" class="internal"><span class="codenumber">1</span> <span class="title">Insiemi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-insiemi.html" class="internal"><span class="codenumber">1.1</span> <span class="title">Concetti di base</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-insiemi.html#exercises-insiemi" class="internal"><span class="codenumber">1.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-operazioni_insiemi.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Operazioni tra insiemi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-operazioni_insiemi.html#exercises-operazioni_insiemi" class="internal"><span class="codenumber">1.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prodotto-cartesiano.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Prodotto cartesiano</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prodotto-cartesiano.html#exercises-prodotto_cartesiano" class="internal"><span class="codenumber">1.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="sec-Russell.html" class="internal"><span class="codenumber">1.4</span> <span class="title">Il paradosso di Russell</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-corrispondenze.html" class="internal"><span class="codenumber">2</span> <span class="title">Corrispondenze e relazioni</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-corrispondenze_definizione.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Corrispondenze tra insiemi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-corrispondenze_definizione.html#exercises-corrispondenze_definizione" class="internal"><span class="codenumber">2.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-relazioni_equivalenza.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Relazioni di equivalenza</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-relazioni_equivalenza.html#exercises-relazioni_equivalenza" class="internal"><span class="codenumber">2.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-relazioni_ordine.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Relazioni d'ordine</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-relazioni_ordine.html#exercises-relazioni_ordine" class="internal"><span class="codenumber">2.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-funzioni.html" class="internal"><span class="codenumber">3</span> <span class="title">Funzioni</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-funzioni_definizione.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Definizioni di base</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-funzioni_definizione.html#exercises-funzioni_definizione" class="internal"><span class="codenumber">3.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-funzioni_iniettive_suriettive.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Funzioni iniettive, suriettive e biiettive</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-funzioni_iniettive_suriettive.html#exercises-funzioni_iniettive_suriettive" class="internal"><span class="codenumber">3.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="sec-cardinalita.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Cenni sulla cardinalità</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-aritmetica.html" class="internal"><span class="codenumber">II</span> <span class="title">Aritmetica</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-interi.html" class="internal"><span class="codenumber">4</span> <span class="title">I numeri interi</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-naturali_base.html" class="internal"><span class="codenumber">4.1</span> <span class="title">I numeri naturali e i numeri interi</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-induzione_ricorrenza.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Dimostrazioni per induzione e definizioni per ricorrenza</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-induzione_ricorrenza.html#exercises-induzione" class="internal"><span class="codenumber">4.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-divisibilita_interi.html" class="internal"><span class="codenumber">4.3</span> <span class="title">Divisibilità negli interi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-divisibilita_interi.html#exercises-divisibilita_interi" class="internal"><span class="codenumber">4.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-fattorizzazione_interi.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Il teorema fondamentale dell'aritmetica</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-fattorizzazione_interi.html#exercises-fattorizzazione_interi" class="internal"><span class="codenumber">4.4</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-equazioni_lineari_diofantine.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Equazioni lineari diofantine</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-equazioni_lineari_diofantine.html#exercises-equazioni_lineari_diofantine" class="internal"><span class="codenumber">4.5</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-classidiresto.html" class="internal"><span class="codenumber">5</span> <span class="title">Classi di resto</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-congruenzemodulon.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Congruenze modulo un intero</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-congruenzemodulon.html#exercises-congruenzemodulon" class="internal"><span class="codenumber">5.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-operazioniclassiresto.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Operazioni tra classi di resto</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-operazioniclassiresto.html#exercises-operazioniclassiresto" class="internal"><span class="codenumber">5.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-eulero.html" class="internal"><span class="codenumber">5.3</span> <span class="title">Il teorema di Eulero</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-eulero.html#exercises-eulero" class="internal"><span class="codenumber">5.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-congruenze_con_incognite.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Congruenze con incognite</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-congruenze_con_incognite.html#exercises-congruenze_con_incognite" class="internal"><span class="codenumber">5.4</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-gruppi.html" class="internal"><span class="codenumber">III</span> <span class="title">Gruppi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-operazioni.html" class="internal"><span class="codenumber">6</span> <span class="title">Operazioni</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-operazioni_definizioni.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Definizioni ed esempi</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-proprieta_operazioni.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Proprietà delle operazioni</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-proprieta_operazioni.html#exercises-proprieta_operazioni" class="internal"><span class="codenumber">6.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-gruppi.html" class="internal"><span class="codenumber">7</span> <span class="title">Monoidi e gruppi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-monoidi.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Monoidi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-monoidi.html#exercises-monoidi" class="internal"><span class="codenumber">7.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-gruppi.html" class="internal"><span class="codenumber">7.2</span> <span class="title">Gruppi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-gruppi.html#exercises-gruppi" class="internal"><span class="codenumber">7.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-gruppi_piccoli.html" class="internal"><span class="codenumber">7.3</span> <span class="title">Alcuni esempi di gruppi piccoli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-gruppi_piccoli.html#exercises-gruppi_piccoli" class="internal"><span class="codenumber">7.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-sottogruppi.html" class="internal"><span class="codenumber">8</span> <span class="title">Sottogruppi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-sottomonoidi_sottogruppi.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Sottomonoidi e sottogruppi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-sottomonoidi_sottogruppi.html#exercises-sottomonoidi_sottogruppi" class="internal"><span class="codenumber">8.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prime_proprieta_sottogruppi.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Prime proprietà dei sottogruppi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prime_proprieta_sottogruppi.html#exercises-prime_proprieta_sottogruppi" class="internal"><span class="codenumber">8.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-gruppi_del_piano.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Gruppi di trasformazioni del piano</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-gruppi_del_piano.html#exercises-gruppi_del_piano" class="internal"><span class="codenumber">8.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-gruppi_ciclici.html" class="internal"><span class="codenumber">9</span> <span class="title">Gruppi ciclici</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-definizione_gruppi_ciclici.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Definizioni e prime proprietà</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-definizione_gruppi_ciclici.html#exercises-definizione_gruppi_ciclici" class="internal"><span class="codenumber">9.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-sottogruppi_di_ciclici.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Sottogruppi di gruppi ciclici</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-sottogruppi_di_ciclici.html#exercises-sottogruppi_di_ciclici" class="internal"><span class="codenumber">9.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-gruppi_permutazioni.html" class="internal"><span class="codenumber">10</span> <span class="title">Gruppi di permutazioni</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-definizioni_gruppi_permutazioni.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Definizioni e prime proprietà</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-definizioni_gruppi_permutazioni.html#exercises-definizioni_gruppi_permutazioni" class="internal"><span class="codenumber">10.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-cicli.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Cicli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-cicli.html#exercises-cicli" class="internal"><span class="codenumber">10.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-scambi.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Scambi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-scambi.html#exercises-scambi" class="internal"><span class="codenumber">10.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-laterali.html" class="internal"><span class="codenumber">11</span> <span class="title">Laterali e teorema di Lagrange</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-prodotto_sottoinsiemi.html" class="internal"><span class="codenumber">11.1</span> <span class="title">Prodotto di sottoinsiemi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prodotto_sottoinsiemi.html#exercises-prodotto_sottoinsiemi" class="internal"><span class="codenumber">11.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-teorema_di_lagrange.html" class="internal"><span class="codenumber">11.2</span> <span class="title">Teorema di Lagrange</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-teorema_di_lagrange.html#exercises-teorema_di_lagrange" class="internal"><span class="codenumber">11.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prodotto_sottogruppi.html" class="internal"><span class="codenumber">11.3</span> <span class="title">Prodotto di sottogruppi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prodotto_sottogruppi.html#exercises-prodotto_sottogruppi" class="internal"><span class="codenumber">11.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-omomorfismi.html" class="internal"><span class="codenumber">12</span> <span class="title">Omomorfismi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-definizione_omomorfismo.html" class="internal"><span class="codenumber">12.1</span> <span class="title">Definizioni e prime proprietà</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-definizione_omomorfismo.html#exercises-definizione_omomorfismo" class="internal"><span class="codenumber">12.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-nucleo_immagine.html" class="internal"><span class="codenumber">12.2</span> <span class="title">Immagine e nucleo di un omomorfismo</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-nucleo_immagine.html#exercises-nucleo_immagine" class="internal"><span class="codenumber">12.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-omomorfismi_da_gruppi_ciclici.html" class="internal"><span class="codenumber">12.3</span> <span class="title">Omomorfismi da gruppi ciclici</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-omomorfismi_da_gruppi_ciclici.html#exercises-omomorfismi_da_gruppi_ciclici" class="internal"><span class="codenumber">12.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-azioni.html" class="internal"><span class="codenumber">13</span> <span class="title">Azioni di gruppi su insiemi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-azioni_definizioni.html" class="internal"><span class="codenumber">13.1</span> <span class="title">Definizioni e prime proprietà</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-azioni_definizioni.html#exercises-azioni_definizioni" class="internal"><span class="codenumber">13.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-orbite_stabilizzatori.html" class="internal"><span class="codenumber">13.2</span> <span class="title">Orbite e stabilizzatori</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-orbite_stabilizzatori.html#exercises-orbite_stabilizzatori" class="internal"><span class="codenumber">13.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-sottogruppi_normali.html" class="internal"><span class="codenumber">13.3</span> <span class="title">Sottogruppi normali</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-sottogruppi_normali.html#exercises-sottogruppi_normali" class="internal"><span class="codenumber">13.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-coniugati_simmetrico_alterno.html" class="internal"><span class="codenumber">13.4</span> <span class="title">Classi di coniugio nel gruppo simmetrico e nel gruppo alterno</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-coniugati_simmetrico_alterno.html#exercises-coniugati_simmetrico_alterno" class="internal"><span class="codenumber">13.4</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-quozienti.html" class="internal"><span class="codenumber">14</span> <span class="title">Gruppi quoziente</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-congruenze.html" class="internal"><span class="codenumber">14.1</span> <span class="title">Congruenze in gruppi e monoidi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-congruenze.html#exercises-congruenze" class="internal"><span class="codenumber">14.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-proprieta_quozienti.html" class="internal"><span class="codenumber">14.2</span> <span class="title">Proprietà dei gruppi quoziente</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-proprieta_quozienti.html#exercises-proprieta_quozienti" class="internal"><span class="codenumber">14.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-teoremi_di_isomorfismo.html" class="internal"><span class="codenumber">14.3</span> <span class="title">I teoremi di isomorfismo</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-teoremi_di_isomorfismo.html#exercises-teoremi_di_isomorfismo" class="internal"><span class="codenumber">14.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-direttosemidiretto.html" class="internal"><span class="codenumber">15</span> <span class="title">Prodotto diretto e semidiretto</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-prodotto_diretto_esterno.html" class="internal"><span class="codenumber">15.1</span> <span class="title">Prodotto diretto esterno</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prodotto_diretto_esterno.html#exercises-prodotto_diretto_esterno" class="internal"><span class="codenumber">15.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prodotto_diretto_interno.html" class="internal"><span class="codenumber">15.2</span> <span class="title">Prodotto diretto interno</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prodotto_diretto_interno.html#exercises-prodotto_diretto_interno" class="internal"><span class="codenumber">15.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-prodotto_semidiretto.html" class="internal"><span class="codenumber">15.3</span> <span class="title">Prodotto semidiretto</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prodotto_semidiretto.html#exercises--prodotto_semidiretto" class="internal"><span class="codenumber">15.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-sylow.html" class="internal"><span class="codenumber">16</span> <span class="title">Il teorema di Sylow</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-inversione_lagrange.html" class="internal"><span class="codenumber">16.1</span> <span class="title">Inversione del teorema di Lagrange</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-sylow.html" class="internal"><span class="codenumber">16.2</span> <span class="title">Il teorema di Sylow</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-sylow.html#exercises-sylow" class="internal"><span class="codenumber">16.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-applicazioni_sylow.html" class="internal"><span class="codenumber">16.3</span> <span class="title">Applicazioni del teorema di Sylow</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-applicazioni_sylow.html#exercises-applicazioni_sylow" class="internal"><span class="codenumber">16.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-anelli.html" class="internal"><span class="codenumber">IV</span> <span class="title">Anelli</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-anelli.html" class="internal"><span class="codenumber">17</span> <span class="title">Anelli</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-prime_proprieta_anelli.html" class="internal"><span class="codenumber">17.1</span> <span class="title">Definizioni e prime proprietà</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-prime_proprieta_anelli.html#exercises-prime_proprieta_anelli" class="internal"><span class="codenumber">17.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-multipli_potenze.html" class="internal"><span class="codenumber">17.2</span> <span class="title">Multipli e potenze in un anello</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-multipli_potenze.html#exercises-multipli_potenze" class="internal"><span class="codenumber">17.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-sottoanelli.html" class="internal"><span class="codenumber">17.3</span> <span class="title">Sottoanelli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-sottoanelli.html#exercises-sottoanelli" class="internal"><span class="codenumber">17.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-omomorfismiideali.html" class="internal"><span class="codenumber">18</span> <span class="title">Omomorfismi e ideali</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-omomorfismi_anelli.html" class="internal"><span class="codenumber">18.1</span> <span class="title">Omomorfismi di anelli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-omomorfismi_anelli.html#exercises-omomorfismi_anelli" class="internal"><span class="codenumber">18.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-anelli_quoziente.html" class="internal"><span class="codenumber">18.2</span> <span class="title">Anelli quoziente e ideali</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-anelli_quoziente.html#exercises-anelli_quoziente" class="internal"><span class="codenumber">18.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-campo_dei_quozienti.html" class="internal"><span class="codenumber">18.3</span> <span class="title">Campo dei quozienti di un dominio</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-campo_dei_quozienti.html#exercises-campo_dei_quozienti" class="internal"><span class="codenumber">18.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-polinomi.html" class="internal"><span class="codenumber">19</span> <span class="title">Polinomi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-anello_polinomi.html" class="internal"><span class="codenumber">19.1</span> <span class="title">Anello dei polinomi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-anello_polinomi.html#exercises-anello_polinomi" class="internal"><span class="codenumber">19.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-valutazione_polinomi.html" class="internal"><span class="codenumber">19.2</span> <span class="title">Valutazione di polinomi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-valutazione_polinomi.html#exercises-valutazione_polinomi" class="internal"><span class="codenumber">19.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-divisibilita.html" class="internal"><span class="codenumber">20</span> <span class="title">Divisibilità nei domini</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-divisibilita.html" class="internal"><span class="codenumber">20.1</span> <span class="title">Relazione di divisibilità</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-divisibilita.html#exercises-divisibilita" class="internal"><span class="codenumber">20.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-fattorizzazione.html" class="internal"><span class="codenumber">20.2</span> <span class="title">Fattorizzazione</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-fattorizzazione.html#exercises-fattorizzazione" class="internal"><span class="codenumber">20.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-PID_euclidei.html" class="internal"><span class="codenumber">20.3</span> <span class="title">Domini a ideali principali e domini euclidei</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-PID_euclidei.html#exercises-PID_euclidei" class="internal"><span class="codenumber">20.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-fattorizzazione_polinomi.html" class="internal"><span class="codenumber">21</span> <span class="title">Fattorizzazione dei polinomi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-trasporto_UFD.html" class="internal"><span class="codenumber">21.1</span> <span class="title">Il teorema del trasporto per domini a fattorizzazione unica</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-trasporto_UFD.html#exercises-trasporto_UFD" class="internal"><span class="codenumber">21.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-esempi_fattorizzazione_polinomi.html" class="internal"><span class="codenumber">21.2</span> <span class="title">Tecniche di fattorizzazione</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-esempi_fattorizzazione_polinomi.html#exercises-esempi_fattorizzazione_polinomi" class="internal"><span class="codenumber">21.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-estensione_campi.html" class="internal"><span class="codenumber">22</span> <span class="title">Estensioni di campi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-elementi_algebrici_e_trascendenti.html" class="internal"><span class="codenumber">22.1</span> <span class="title">Elementi algebrici e trascendenti</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-elementi_algebrici_e_trascendenti.html#exercises-elementi_algebrici_e_trascendenti" class="internal"><span class="codenumber">22.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-campo_di_spezzamento.html" class="internal"><span class="codenumber">22.2</span> <span class="title">Campi di spezzamento</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-campo_di_spezzamento.html#exercises-campo_di_spezzamento" class="internal"><span class="codenumber">22.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="sec-chiusure_algebriche.html" class="internal"><span class="codenumber">22.3</span> <span class="title">Cenni su campi algebricamente chiusi</span></a></div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="part-moduli.html" class="internal"><span class="codenumber">V</span> <span class="title">Moduli</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="ch-moduli.html" class="internal"><span class="codenumber">23</span> <span class="title">Moduli</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-definizione_di_moduli.html" class="internal"><span class="codenumber">23.1</span> <span class="title">Definizione di modulo</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-definizione_di_moduli.html#exercises-definizione_modulo" class="internal"><span class="codenumber">23.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-sottomoduli.html" class="internal"><span class="codenumber">23.2</span> <span class="title">Sottomoduli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-sottomoduli.html#exercises-sottomoduli" class="internal"><span class="codenumber">23.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-omomorfismi_moduli.html" class="internal"><span class="codenumber">23.3</span> <span class="title">Omomorfismi di moduli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-omomorfismi_moduli.html#exercises-omomorfismi_moduli" class="internal"><span class="codenumber">23.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-moduli_quoziente.html" class="internal"><span class="codenumber">23.4</span> <span class="title">Moduli quoziente</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-moduli_quoziente.html#exercises-moduli_quoziente" class="internal"><span class="codenumber">23.4</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-moduli_liberi.html" class="internal"><span class="codenumber">24</span> <span class="title">Moduli liberi</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-somma_diretta_moduli.html" class="internal"><span class="codenumber">24.1</span> <span class="title">Somma diretta di moduli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-somma_diretta_moduli.html#exercises-somma_diretta_moduli" class="internal"><span class="codenumber">24.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li class="active">
+<div class="toc-item"><a href="sec-dipendenza_lineare.html" class="internal"><span class="codenumber">24.2</span> <span class="title">Dipendenza e indipendenza lineare</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-dipendenza_lineare.html#exercises-dipendenza_lineare" class="internal"><span class="codenumber">24.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-elementi_di_torsione.html" class="internal"><span class="codenumber">24.3</span> <span class="title">Elementi di torsione</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-elementi_di_torsione.html#exercises-elementi_di_torsione" class="internal"><span class="codenumber">24.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-modulisupid.html" class="internal"><span class="codenumber">25</span> <span class="title">Moduli finitamente generati su PID</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-moduli_ciclici.html" class="internal"><span class="codenumber">25.1</span> <span class="title">Moduli ciclici</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-moduli_ciclici.html#exercises-moduli_ciclici" class="internal"><span class="codenumber">25.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-moduli_primari.html" class="internal"><span class="codenumber">25.2</span> <span class="title">Moduli primari</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-moduli_primari.html#exercises-moduli_primari" class="internal"><span class="codenumber">25.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-moduli_liberi.html" class="internal"><span class="codenumber">25.3</span> <span class="title">Moduli liberi</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-moduli_liberi.html#exercises-moduli_liberi" class="internal"><span class="codenumber">25.3</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="sec-classificazione_moduli_pid.html" class="internal"><span class="codenumber">25.4</span> <span class="title">La classificazione dei moduli finitamente generati su un dominio a ideali principali</span></a></div></li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-gruppiabeliani.html" class="internal"><span class="codenumber">26</span> <span class="title">Gruppi abeliani finitamente generati</span></a></div>
+<ul class="structural"><li>
+<div class="toc-item"><a href="sec-gruppiabeliani.html" class="internal"><span class="codenumber">26.1</span> <span class="title">Classificazione dei gruppi abeliani finitamente generati</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-gruppiabeliani.html#exercises-gruppiabeliani" class="internal"><span class="codenumber">26.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="ch-formecanoniche.html" class="internal"><span class="codenumber">27</span> <span class="title">Forme canoniche di matrici</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="sec-kx_moduli.html" class="internal"><span class="codenumber">27.1</span> <span class="title">Spazi vettoriali con endomorfismi visti come moduli</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-kx_moduli.html#exercises-kx_moduli" class="internal"><span class="codenumber">27.1</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-matrici_rappresentative.html" class="internal"><span class="codenumber">27.2</span> <span class="title">Matrici rappresentative</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-matrici_rappresentative.html#exercises-matrici_rappresentative" class="internal"><span class="codenumber">27.2</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li><div class="toc-item"><a href="sec-matrici_compagne.html" class="internal"><span class="codenumber">27.3</span> <span class="title">Matrici compagne</span></a></div></li>
+<li>
+<div class="toc-item"><a href="sec-jordan.html" class="internal"><span class="codenumber">27.4</span> <span class="title">Forma canonica di Jordan</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-jordan.html#exercises-jordan" class="internal"><span class="codenumber">27.4</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+<li>
+<div class="toc-item"><a href="sec-polinomio_minimo_matrici.html" class="internal"><span class="codenumber">27.5</span> <span class="title">Polinomio minimo di matrici</span></a></div>
+<ul class="structural"><li><div class="toc-item"><a href="sec-polinomio_minimo_matrici.html#exercises-polinomio_minimo_matrici" class="internal"><span class="codenumber">27.5</span> <span class="title">Esercizi</span></a></div></li></ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<div class="toc-item"><a href="backmatter.html" class="internal"><span class="title">Appendici</span></a></div>
+<ul class="structural">
+<li>
+<div class="toc-item"><a href="appendix-peano.html" class="internal"><span class="codenumber">A</span> <span class="title">Numeri naturali e interi</span></a></div>
+<ul class="structural">
+<li><div class="toc-item"><a href="sec-algebre_induttive.html" class="internal"><span class="codenumber">A.1</span> <span class="title">Algebre induttive</span></a></div></li>
+<li><div class="toc-item"><a href="sec-assiomi_peano.html" class="internal"><span class="codenumber">A.2</span> <span class="title">Gli assiomi di Peano</span></a></div></li>
+<li><div class="toc-item"><a href="sec-insiemi_finiti_infiniti.html" class="internal"><span class="codenumber">A.3</span> <span class="title">Insiemi finiti e infiniti</span></a></div></li>
+<li><div class="toc-item"><a href="sec-operazioni_naturali.html" class="internal"><span class="codenumber">A.4</span> <span class="title">Operazioni tra numeri naturali</span></a></div></li>
+<li><div class="toc-item"><a href="sec-interi.html" class="internal"><span class="codenumber">A.5</span> <span class="title">Costruzione degli interi</span></a></div></li>
+</ul>
+</li>
+<li><div class="toc-item"><a href="appendix-2.html" class="internal"><span class="codenumber">B</span> <span class="title">Notazioni</span></a></div></li>
+<li><div class="toc-item"><a href="solutions-1.html" class="internal"><span class="codenumber">C</span> <span class="title">Soluzioni e suggerimenti</span></a></div></li>
+<li><div class="toc-item"><a href="appendix-gfdl.html" class="internal"><span class="codenumber">D</span> <span class="title">GNU Free Documentation License</span></a></div></li>
+<li><div class="toc-item"><a href="indice.html" class="internal"><span class="title">Indice analitico</span></a></div></li>
+<li><div class="toc-item"><a href="back-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+</ul>
+</li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-dipendenza_lineare"><h2 class="heading hide-type">
+<span class="type">Paragrafo</span> <span class="codenumber">24.2</span> <span class="title">Dipendenza e indipendenza lineare</span>
+</h2>
+<article class="definition definition-like" id="def-dipendenza_indipendenza_lineare"><h3 class="heading">
+<span class="type">Definizione</span><span class="space"> </span><span class="codenumber">24.2.1</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-3174">
+<div class="para">Dato un <span class="process-math">\(R\)</span>-modulo <span class="process-math">\(M\)</span> e degli elementi <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> di <span class="process-math">\(M\text{,}\)</span> questi sono detti <dfn class="terminology">linearmente dipendenti</dfn> se esistono <span class="process-math">\(a_{1}\text{,}\)</span> <span class="process-math">\(a_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_{r}\)</span> in <span class="process-math">\(R\)</span> non tutti nulli tali che</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{r}a_{r}=0\text{.}
+\end{equation*}
+</div>
+<div class="para">Sono detti <dfn class="terminology">linearmente indipendenti</dfn> altrimenti, cioè se l'unica possibilità per ottenere <span class="process-math">\(0\)</span> come loro combinazione lineare</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{r}a_{r}=0
+\end{equation*}
+</div>
+<div class="para">è quella di scegliere tutti gli <span class="process-math">\(a_{i}\)</span> uguali a <span class="process-math">\(0\text{.}\)</span>
+</div>
+</div></article><div class="para" id="p-3175">Come nel caso degli spazi vettoriali, la proprietà di essere o meno linearmente indipendenti, non è una proprietà dei singoli elementi ma una proprietà della lista di elementi considerati.</div>
+<article class="note remark-like" id="note-16"><h3 class="heading">
+<span class="type">Nota</span><span class="space"> </span><span class="codenumber">24.2.2</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-3176">
+<div class="para">In pratica, per stabilire se degli elementi <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> di un <span class="process-math">\(R\)</span>-modulo <span class="process-math">\(M\)</span> sono linearmente dipendenti o indipendenti si procede così: si pone</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{r}a_{r}=0
+\end{equation*}
+</div>
+<div class="para">e si risolve questa equazione in cui gli <span class="process-math">\(a_{i}\)</span> sono le incognite; se si mostra che l'unica soluzione è quella banale con tutti gli <span class="process-math">\(a_{i}\)</span> nulli, allora gli <span class="process-math">\(x_{i}\)</span> sono linearmente indipendenti mentre se si trova una soluzione non banale sono linearmente dipendenti.</div>
+</div></article><article class="remark remark-like" id="rem-sottoinsieme_linearmente_indipendente"><h3 class="heading">
+<span class="type">Osservazione</span><span class="space"> </span><span class="codenumber">24.2.3</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-3177">
+<div class="para">Come avviene per gli spazi vettoriali, se <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> sono elementi linearmente dipendenti di un <span class="process-math">\(R\)</span>-modulo <span class="process-math">\(M\text{,}\)</span> allora <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\text{,}\)</span> <span class="process-math">\(x_{r+1}\)</span> sono linearmente dipendenti per ogni <span class="process-math">\(x_{r+1}\)</span> in <span class="process-math">\(M\text{.}\)</span> Infatti, se <span class="process-math">\(a_{1}\text{,}\)</span> <span class="process-math">\(a_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(a_{r}\)</span> in <span class="process-math">\(R\)</span> sono elementi non tutti nulli tali che</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{r}a_{r}=0
+\end{equation*}
+</div>
+<div class="para">allora, ponendo <span class="process-math">\(a_{r+1}\coloneqq 0\text{,}\)</span> si ha</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{r}a_{r}+x_{r+1}a_{r+1}=0\text{.}
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-3178">Vediamo subito una proprietà che vale per gli spazi vettoriali e che non si generalizza a <span class="process-math">\(R\)</span>-moduli qualunque. Sappiamo che quando la lista di vettori considerati è formata da un singolo vettore, essere linearmente indipendente è equivalente a essere diverso da <span class="process-math">\(0\text{.}\)</span> Ciò non è detto per gli <span class="process-math">\(R\)</span>-moduli qualunque.</div>
+<article class="example example-like" id="ex-periodo_finito_non_indipendente"><h3 class="heading">
+<span class="type">Esempio</span><span class="space"> </span><span class="codenumber">24.2.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3179">Sia <span class="process-math">\(G\)</span> un gruppo abeliano, pensato come uno <span class="process-math">\(\Interi\)</span>-modulo e sia <span class="process-math">\(x\)</span> un elemento non nullo di <span class="process-math">\(G\)</span> di periodo additivo <span class="process-math">\(d\text{,}\)</span> allora <span class="process-math">\(x\)</span> non è linearmente indipendente: esiste una combinazione lineare non banale di <span class="process-math">\(x\)</span> che dà come risultato <span class="process-math">\(0\text{,}\)</span> e cioè <span class="process-math">\(xd=0\text{.}\)</span>
+</div></article><div class="para" id="p-3180">Come nel caso degli spazi vettoriali abbiamo la</div>
+<article class="proposition theorem-like" id="prop-unica_decomposizione_linearmente_indipendenti"><h3 class="heading">
+<span class="type">Proposizione</span><span class="space"> </span><span class="codenumber">24.2.5</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3181">Dato un <span class="process-math">\(R\)</span>-modulo <span class="process-math">\(M\)</span> e degli elementi <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> di <span class="process-math">\(M\text{,}\)</span> questi sono linearmente indipendenti se e solo se ogni elemento del sottomodulo generato da <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> si esprime in maniera unica come loro combinazione lineare.</div></article><article class="hiddenproof" id="proof-257"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-257"><h3 class="heading"><span class="type">Dimostrazione<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-257"><article class="hiddenproof"><div class="para" id="p-3182">Supponiamo che ogni elemento del sottomodulo generato da <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> si esprima in maniera unica come loro combinazione lineare: in particolare, ciò vale per l'elemento nullo che, quindi, si può esprimere come loro combinazione lineare solo nel modo banale e, dunque, gli elementi <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> sono linearmente indipendenti.</div> <div class="para logical" id="p-3183">
+<div class="para">Viceversa, siano <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> linearmente indipendenti, e sia <span class="process-math">\(x\)</span> un elemento del sottomodulo generato da essi: dunque, per la <a href="" class="xref" data-knowl="./knowl/prop-elementi_del_sottomodulo_generato.html" title="Proposizione 23.2.11">Proposizione 23.2.11</a>, <span class="process-math">\(x\)</span> si può esprimere come</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-elementi_del_sottomodulo_generato.html">
+\begin{equation*}
+x=x_{1}a_{1}+x_{2}a_{2}+\cdots +x_{r}a_{r}
+\end{equation*}
+</div>
+<div class="para">con gli <span class="process-math">\(a_{i}\)</span> in <span class="process-math">\(R\text{.}\)</span> Se ora abbiamo un'altra espressione di questo tipo per <span class="process-math">\(x\)</span>
+</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-elementi_del_sottomodulo_generato.html">
+\begin{equation*}
+x=x_{1}b_{1}+x_{2}b_{2}+\cdots +x_{r}b_{r}\text{,}
+\end{equation*}
+</div>
+<div class="para">sottraendo l'una dall'altra otteniamo</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-elementi_del_sottomodulo_generato.html">
+\begin{equation*}
+0=x_{1}(a_{1}-b_{1})+x_{2}(a_{2}-b_{2})+\cdots +x_{r}(a_{r}-b_{r})\text{.}
+\end{equation*}
+</div>
+<div class="para">Poiché  <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{r}\)</span> sono linearmente indipendenti, i coefficienti devono essere tutti nulli, cioè <span class="process-math">\(a_{i}=b_{i}\)</span> per ogni <span class="process-math">\(i\text{.}\)</span>
+</div>
+</div></article></div>
+<div class="para" id="p-3184">Possiamo ora introdurre il concetto di base.</div>
+<article class="definition definition-like" id="def-base_modulo_libero"><h3 class="heading">
+<span class="type">Definizione</span><span class="space"> </span><span class="codenumber">24.2.6</span><span class="period">.</span>
+</h3>
+<div class="para logical" id="p-3185">
+<div class="para">Gli elementi <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{n}\)</span> di un <span class="process-math">\(R\)</span>-modulo <span class="process-math">\(M\)</span> formano una <dfn class="terminology">base</dfn> se</div>
+<ul class="disc">
+<li id="li-274"><div class="para" id="p-3186">generano <span class="process-math">\(M\text{;}\)</span>
+</div></li>
+<li id="li-275"><div class="para" id="p-3187">sono linearmente indipendenti.</div></li>
+</ul>
+</div></article><article class="remark remark-like" id="rem-non_base"><h3 class="heading">
+<span class="type">Osservazione</span><span class="space"> </span><span class="codenumber">24.2.7</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3188">Non tutti i moduli, anche se possono essere generati da un numero finito di elementi, ammettono una base. Ad esempio, in un gruppo abeliano finito <span class="process-math">\(G\text{,}\)</span> pensato come <span class="process-math">\(\Interi\)</span>-modulo, abbiamo osservato nell'<a href="" class="xref" data-knowl="./knowl/ex-periodo_finito_non_indipendente.html" title="Esempio 24.2.4">Esempio 24.2.4</a> che nessun elemento singolarmente preso è linearmente indipendente. A maggior ragione, presi comunque dei generatori di <span class="process-math">\(G\text{,}\)</span> questi non formano una base.</div></article><article class="definition definition-like" id="def-modulo_libero"><h3 class="heading">
+<span class="type">Definizione</span><span class="space"> </span><span class="codenumber">24.2.8</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3189">Un <span class="process-math">\(R\)</span>-modulo <span class="process-math">\(M\)</span> che ammette una base è detto modulo <dfn class="terminology">libero</dfn>.</div></article><article class="proposition theorem-like" id="prop-modulo_libero_e_libero"><h3 class="heading">
+<span class="type">Proposizione</span><span class="space"> </span><span class="codenumber">24.2.9</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3190">Sia <span class="process-math">\(M\)</span> un <span class="process-math">\(R\)</span>-modulo libero con una base <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{n}\text{.}\)</span> Sia <span class="process-math">\(N\)</span> un <span class="process-math">\(R\)</span>-modulo e siano <span class="process-math">\(y_{1}\text{,}\)</span> <span class="process-math">\(y_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(y_{n}\)</span> elementi di <span class="process-math">\(N\)</span> (non necessariamente diversi). Allora esiste un unico omomorfismo <span class="process-math">\(\phi\colon M\to N\)</span> tale che <span class="process-math">\(x_{i}\phi=y_{i}\)</span> per ogni <span class="process-math">\(i\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-258"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-258"><h3 class="heading"><span class="type">Dimostrazione<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-258"><article class="hiddenproof"><div class="para logical" id="p-3191">
+<div class="para">Per la <a href="" class="xref" data-knowl="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html" title="Proposizione 24.2.5">Proposizione 24.2.5</a>, ogni elemento <span class="process-math">\(x\)</span> di <span class="process-math">\(M\)</span> si esprime unicamente come</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html">
+\begin{equation*}
+x=x_{1}a_{1}+x_{2}a_{2}+\cdots+x_{n}a_{n}\text{.}
+\end{equation*}
+</div>
+<div class="para">Poniamo allora</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html">
+\begin{equation*}
+x\phi\coloneqq y_{1}a_{1}+y_{2}a_{2}+\cdots+y_{n}a_{n}\text{.}
+\end{equation*}
+</div>
+<div class="para">Le verifiche che questo sia un omomorfismo, che mandi ciascun <span class="process-math">\(x_{i}\)</span> nel corrispondente <span class="process-math">\(y_{i}\)</span> e che sia l'unico omomorfismo con queste proprietà sono di routine.</div>
+</div></article></div>
+<article class="proposition theorem-like" id="prop-moduli_liberi_n_uple"><h3 class="heading">
+<span class="type">Proposizione</span><span class="space"> </span><span class="codenumber">24.2.10</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3192">Un <span class="process-math">\(R\)</span>-modulo è libero se e solo se è isomorfo a <span class="process-math">\(R^{n}\)</span> per qualche naturale <span class="process-math">\(n\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-259"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-259"><h3 class="heading"><span class="type">Dimostrazione<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-259"><article class="hiddenproof"><div class="para" id="p-3193">Dimostriamo innanzitutto che <span class="process-math">\(R^{n}\)</span> è libero esibendone esplicitamente una base. Basta prendere, come nel caso degli spazi vettoriali, <span class="process-math">\(e_{1}\coloneqq(1,0,\ldots,0)\text{,}\)</span> <span class="process-math">\(e_{2}\coloneqq(0,1,0,\ldots,0)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(e_{n}\coloneqq(0,\ldots,0,1)\text{:}\)</span> si verifica facilmente che questi elementi generano <span class="process-math">\(R^{n}\)</span> e sono linearmente indipendenti.</div> <div class="para" id="p-3194">Sia ora <span class="process-math">\(M\)</span> un modulo libero avente una base <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{n}\text{.}\)</span> Per la <a href="" class="xref" data-knowl="./knowl/prop-modulo_libero_e_libero.html" title="Proposizione 24.2.9">Proposizione 24.2.9</a>, esiste un unico omomorfismo <span class="process-math">\(\phi\colon M\to R^{n}\)</span> che manda ciascun <span class="process-math">\(x_{i}\)</span> in <span class="process-math">\(e_{i}\text{.}\)</span> Si verifica facilmente che questo omomorfismo è un isomorfismo.</div></article></div>
+<article class="corollary theorem-like" id="cor-moduli_fg_quozienti_di_liberi"><h3 class="heading">
+<span class="type">Corollario</span><span class="space"> </span><span class="codenumber">24.2.11</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3195">Ogni <span class="process-math">\(R\)</span>-modulo finitamente generato <span class="process-math">\(N\)</span> è quoziente di un modulo libero.</div></article><article class="hiddenproof" id="proof-260"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-260"><h3 class="heading"><span class="type">Dimostrazione<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-260"><article class="hiddenproof"><div class="para" id="p-3196">Supponiamo che <span class="process-math">\(N\)</span> sia generato dagli <span class="process-math">\(n\)</span> elementi <span class="process-math">\(y_{1}\text{,}\)</span> <span class="process-math">\(y_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(y_{n}\text{.}\)</span> Prendiamo un modulo libero <span class="process-math">\(M\)</span> con una base formata da <span class="process-math">\(n\)</span> elementi (grazie alla <a href="" class="xref" data-knowl="./knowl/prop-moduli_liberi_n_uple.html" title="Proposizione 24.2.10">Proposizione 24.2.10</a>, un modulo libero siffatto esiste, ad esempio <span class="process-math">\(R^{n}\)</span>) e, consideriamo l'omomorfismo, dato dalla <a href="" class="xref" data-knowl="./knowl/prop-modulo_libero_e_libero.html" title="Proposizione 24.2.9">Proposizione 24.2.9</a>, che manda gli elementi della base scelta di <span class="process-math">\(M\)</span> negli <span class="process-math">\(y_{i}\text{.}\)</span> Tale omomorfismo è ovviamente suriettivo (l'immagine contiene i generatori di <span class="process-math">\(N\)</span>) e, quindi, per il <a href="" class="xref" data-knowl="./knowl/thm-isomorfismo_quoziente_sul_nucleo_moduli.html" title="Teorema 23.4.6">Teorema 23.4.6</a>, <span class="process-math">\(N\)</span> è isomorfo a un quoziente di <span class="process-math">\(M\text{.}\)</span>
+</div></article></div>
+<div class="para" id="p-3197">A differenza di quanto avviene per gli spazi vettoriali, non è detto che tutte le basi di un <span class="process-math">\(R\)</span>-modulo libero siano formate dallo stesso numero di elementi. Dare un esempio in cui ci siano basi con un numero differente di elementi non è però semplicissimo ed esula dagli scopi di questo libro. Abbiamo tuttavia il</div>
+<article class="theorem theorem-like" id="thm-commutativo_IBN"><h3 class="heading">
+<span class="type">Teorema</span><span class="space"> </span><span class="codenumber">24.2.12</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3198">Sia <span class="process-math">\(R\)</span> un anello commutativo e sia <span class="process-math">\(M\)</span> un <span class="process-math">\(R\)</span>-modulo libero. Allora, tutte le basi di <span class="process-math">\(M\)</span> sono formate dallo stesso numero di elementi.</div></article><article class="hiddenproof" id="proof-261"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-261"><h3 class="heading"><span class="type">Dimostrazione<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-261"><article class="hiddenproof"><div class="para" id="p-3199">Siano <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{m}\)</span> e <span class="process-math">\(y_{1}\text{,}\)</span> <span class="process-math">\(y_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(y_{n}\)</span> basi di <span class="process-math">\(M\text{.}\)</span> Dobbiamo mostrare che <span class="process-math">\(m=n\text{.}\)</span> Supponiamo, per assurdo, che <span class="process-math">\(m \gt n\text{.}\)</span>
+</div> <div class="para logical" id="p-3200">
+<div class="para">Ogni elemento di <span class="process-math">\(M\)</span> è combinazione lineare degli <span class="process-math">\(x_{i}\text{:}\)</span> ciò in particolare è vero per gli <span class="process-math">\(y_{j}\text{.}\)</span> Possiamo allora scrivere</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html">
+\begin{equation*}
+y_{j}=x_{1}a_{1j}+x_{2}a_{2j}+\cdots+x_{m}a_{mj}=\sum_{h=1}^{m}x_{h}a_{hj}
+\end{equation*}
+</div>
+<div class="para">per opportuni <span class="process-math">\(a_{hj}\)</span> in <span class="process-math">\(R\text{.}\)</span> Analogamente, abbiamo</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html">
+\begin{equation*}
+x_{i}=\sum_{j=1}^{n}y_{j}b_{ji}
+\end{equation*}
+</div>
+<div class="para">per opportuni <span class="process-math">\(b_{ji}\)</span> in <span class="process-math">\(R\text{.}\)</span> Combinando le due espressioni troviamo allora</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html">
+\begin{equation*}
+x_{i}=\sum_{j=1}^{n}\sum_{h=1}^{m}x_{h}a_{hj}b_{ji}=\sum_{h=1}^{m}x_{h}(\sum_{j=1}^{n}a_{hj}b_{ji})\text{.}
+\end{equation*}
+</div>
+<div class="para">Per la <a href="" class="xref" data-knowl="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html" title="Proposizione 24.2.5">Proposizione 24.2.5</a>, questa decomposizione di <span class="process-math">\(x_{i}\)</span> deve coincidere con quella ovvia</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html">
+\begin{equation*}
+x_{i}=x_{1}0+\cdots+x_{i-1}0+x_{i}1+x_{i+1}0+\cdots+x_{m}0
+\end{equation*}
+</div>
+<div class="para">e, quindi</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/prop-unica_decomposizione_linearmente_indipendenti.html">
+\begin{equation*}
+\sum_{j=1}^{n}a_{hj}b_{ji}=
+\begin{cases}
+1 \amp\text{ se }h=i\\
+0 \amp\text{ se }h\ne i
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">con <span class="process-math">\(h\)</span> e <span class="process-math">\(i\)</span> nell'intervallo da <span class="process-math">\(1\)</span> a <span class="process-math">\(m\text{.}\)</span>
+</div>
+</div> <div class="para logical" id="p-3201">
+<div class="para">Consideriamo allora la matrice <span class="process-math">\(A\)</span> a <span class="process-math">\(m\)</span> righe e <span class="process-math">\(n\)</span> colonne il cui elemento di posto <span class="process-math">\((h,j)\)</span> è <span class="process-math">\(a_{hj}\)</span> e la matrice <span class="process-math">\(B\)</span> a <span class="process-math">\(n\)</span> righe e <span class="process-math">\(m\)</span> colonne il cui elemento di posto <span class="process-math">\((j,i)\)</span> è <span class="process-math">\(b_{ji}\text{,}\)</span> vediamo che il prodotto <span class="process-math">\(AB\)</span> coincide con la matrice identica di ordine <span class="process-math">\(m\text{.}\)</span> Consideriamo ora la matrice quadrata <span class="process-math">\(A^{*}\)</span> di ordine <span class="process-math">\(m\)</span> che si ottiene “attaccando” ad <span class="process-math">\(A\)</span> delle colonne nulle e la matrice quadrata <span class="process-math">\(B^{*}\)</span> di ordine <span class="process-math">\(m\)</span> che si ottiene “attaccando” a <span class="process-math">\(B\)</span> delle righe nulle. Formalmente,  poniamo <span class="process-math">\(a_{hj}\coloneqq 0\)</span> per <span class="process-math">\(n+1\le j\le m\)</span> e <span class="process-math">\(b_{ji}\coloneqq 0\)</span> per <span class="process-math">\(n+1\le i\le m\text{.}\)</span> Facendo il prodotto <span class="process-math">\(A^{*}B^{*}\)</span> vediamo che il suo elemento di posto <span class="process-math">\((h,i)\)</span> è</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{j=1}^{m}a_{hj}b_{ji}=\sum_{j=1}^{n}a_{hj}b_{ji}+\sum_{j=n+1}^{m}a_{hj}b_{ji}=\sum_{j=1}^{n}a_{hj}b_{ji}+0=\sum_{j=1}^{n}a_{hj}b_{ji}
+\end{equation*}
+</div>
+<div class="para">e, quindi, <span class="process-math">\(A^{*}B^{*}=\Id\text{.}\)</span> Per il teorema di Binet (che vale nell'ipotesi che l'anello dei coefficienti sia commutativo), otteniamo allora <span class="process-math">\(\det A^{*}\det B^{*}=\det\Id=1\text{,}\)</span> il che è assurdo, perché <span class="process-math">\(A^{*}\text{,}\)</span> avendo delle colonne nulle, ha determinante nullo.</div>
+</div></article></div>
+<div class="para" id="p-3202">Il teorema precedente ci permette di dare la</div>
+<article class="definition definition-like" id="def-rango_modulo_libero"><h3 class="heading">
+<span class="type">Definizione</span><span class="space"> </span><span class="codenumber">24.2.13</span><span class="period">.</span>
+</h3> <div class="para" id="p-3203">Dato un <span class="process-math">\(R\)</span>-modulo libero <span class="process-math">\(M\)</span> con <span class="process-math">\(R\)</span> anello commutativo, definiamo <dfn class="terminology">rango</dfn> di <span class="process-math">\(M\text{,}\)</span> denotato con <span class="process-math">\(\rk M\text{,}\)</span> il numero di elementi di una sua qualsiasi base.</div></article><article class="proposition theorem-like" id="prop-somma_diretta_di_liberi"><h3 class="heading">
+<span class="type">Proposizione</span><span class="space"> </span><span class="codenumber">24.2.14</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3204">Siano <span class="process-math">\(M_{1}\text{,}\)</span> <span class="process-math">\(M_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(M_{r}\)</span> degli <span class="process-math">\(R\)</span>-moduli liberi. Allora <span class="process-math">\(M_{1}\oplus M_{2}\oplus\cdots\oplus M_{r}\)</span> è libero di rango <span class="process-math">\(\rk M_{1}+\rk M_{2}+\cdots+\rk M_{r}\text{.}\)</span>
+</div></article><article class="hiddenproof" id="proof-262"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-262"><h3 class="heading"><span class="type">Dimostrazione<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-262"><article class="hiddenproof"><div class="para" id="p-3205">Dimostriamo il caso in cui <span class="process-math">\(r=2\text{,}\)</span> lasciando il caso generale per esercizio.</div> <div class="para" id="p-3206">Sia allora <span class="process-math">\(r=2\text{.}\)</span> Sia <span class="process-math">\(x_{1}\text{,}\)</span> <span class="process-math">\(x_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(x_{m}\)</span> una base di <span class="process-math">\(M_{1}\)</span> e sia <span class="process-math">\(y_{1}\text{,}\)</span> <span class="process-math">\(y_{2}\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\(y_{n}\)</span> una base di <span class="process-math">\(M_{2}\text{.}\)</span> Consideriamo allora in <span class="process-math">\(M_{1}\oplus M_{2}\)</span> gli <span class="process-math">\(m+n\)</span> elementi <span class="process-math">\((x_{1},0)\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span>  <span class="process-math">\((x_{m},0)\text{,}\)</span> <span class="process-math">\((0,y_{1})\text{,}\)</span> <span class="process-math">\(\ldots\text{,}\)</span> <span class="process-math">\((0,y_{n})\)</span> e mostriamo che formano una base.</div> <div class="para logical" id="p-3207">
+<div class="para">Consideriamo una loro combinazione lineare uguale a <span class="process-math">\(0\text{:}\)</span>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(x_{1},0)a_{1}+\cdots+(x_{m},0)a_{m}+(0,y_{1})b_{1}+\cdots+(0,y_{n})b_{n}=(0,0)\text{.}
+\end{equation*}
+</div>
+<div class="para">Con semplici calcoli, otteniamo:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+(x_{1}a_{1}+\cdots+x_{m}a_{m},y_{1}b_{1}+\cdots+y_{n}b_{n})=(0,0)
+\end{equation*}
+</div>
+<div class="para">da cui segue</div>
+<div class="displaymath process-math">
+\begin{equation*}
+x_{1}a_{1}+\cdots+x_{m}a_{m}=0
+\end{equation*}
+</div>
+<div class="para">e</div>
+<div class="displaymath process-math">
+\begin{equation*}
+y_{1}b_{1}+\cdots+y_{n}b_{n}=0
+\end{equation*}
+</div>
+<div class="para">e, essendo gli <span class="process-math">\(a_{i}\)</span> linearmente indipendenti, otteniamo che tutti gli <span class="process-math">\(a_{i}\)</span> sono nulli e, analogamente, per i <span class="process-math">\(b_{j}\text{.}\)</span> Dunque, gli <span class="process-math">\(m+n\)</span> elementi dati sono linearmente indipendenti.</div>
+</div> <div class="para" id="p-3208">Sia ora <span class="process-math">\((x,y)\)</span> un generico elemento di <span class="process-math">\(M_{1}\oplus M_{2}\text{.}\)</span> Allora <span class="process-math">\(x\)</span> è combinazione lineare degli <span class="process-math">\(x_{i}\)</span> e <span class="process-math">\(y\)</span> è combinazione lineare degli <span class="process-math">\(y_{j}\text{.}\)</span> Ma allora si vede immediatamente che <span class="process-math">\((x,0)\)</span> è combinazione lineare degli elementi <span class="process-math">\((x_{i},0)\)</span> e <span class="process-math">\((0,y)\)</span> è combinazione lineare degli elementi <span class="process-math">\((0,y_{j})\text{.}\)</span> Ma allora, <span class="process-math">\((x,y)=(x,0)+(0,y)\)</span> è combinazione lineare degli <span class="process-math">\(m+n\)</span> elementi dati che sono, quindi, generatori di <span class="process-math">\(M_{1}\oplus M_{2}\text{.}\)</span>
+</div></article></div>
+<article class="note remark-like" id="note-17"><h3 class="heading">
+<span class="type">Nota</span><span class="space"> </span><span class="codenumber">24.2.15</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-3209">La nozione di elementi dipendenti, indipendenti e di base che abbiamo dato coinvolgono un numero finito di elementi. Si potrebbero però introdurre questi concetti per una cardinalità qualunque di elementi, anche infinita.</div></article><section class="exercises" id="exercises-dipendenza_lineare"><h3 class="heading hide-type">
+<span class="type">Esercizi</span> <span class="codenumber"></span> <span class="title">Esercizi</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-408"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<div class="para" id="p-3210">Completare la dimostrazione della <a href="" class="xref" data-knowl="./knowl/prop-modulo_libero_e_libero.html" title="Proposizione 24.2.9">Proposizione 24.2.9</a>.</div></article><article class="exercise exercise-like" id="exercise-409"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<div class="para" id="p-3211">Completare la dimostrazione della <a href="" class="xref" data-knowl="./knowl/prop-moduli_liberi_n_uple.html" title="Proposizione 24.2.10">Proposizione 24.2.10</a>.</div></article><article class="exercise exercise-like" id="exercise-410"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<div class="para" id="p-3212">Dimostrare il caso generale della <a href="" class="xref" data-knowl="./knowl/prop-somma_diretta_di_liberi.html" title="Proposizione 24.2.14">Proposizione 24.2.14</a>.</div></article></section></section></div>
+<div class="ptx-content-footer">
+<a class="previous-button button" href="sec-somma_diretta_moduli.html" title="Precedente"><span class="icon">&lt;</span><span class="name">Prec</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-elementi_di_torsione.html" title="Successivo"><span class="name">Succ</span><span class="icon">&gt;</span></a>
+</div></main>
+</div>
+<div class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org"><div class="name">Redatto in PreTeXt</div>
+<div class="logo"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="338 3000 8772 6866"><g style="stroke-width:.025in; stroke:black; fill:none"><polyline points="472,3590 472,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259 "></path><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0  472  9732 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,3496 A 4241 4241  0  0  1  4724  3590 "></path><path style="stroke:#000000;stroke-width:126;stroke-linecap:round;" d="M 850,9259 A 4507 4507  0  0  1  4724  9448 "></path><polyline points="5385,4299 4062,8125 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8598,3496 8598,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="850,3496 850,9259 " style="stroke:#000000;stroke-width:126; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="4960,9685 4488,9685 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="3070,4582 1889,6141 3070,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="6418,4582 7600,6141 6418,7700 " style="stroke:#000000;stroke-width:300; stroke-linejoin:miter; stroke-linecap:round; "></polyline><polyline points="8976,3590 8976,9732 " style="stroke:#000000;stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke:#000000;stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732 "></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy"><div class="name">Powered by Runestone</div>
+<img class="logo" title="Powered by Runestone" src="https://runestone.academy/runestone/static/rectangle_badge.png" alt="Powered by Runestone"></a><a class="mathjax-logo" href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a>
+</div>
+</body>
+</html>
